@@ -155,14 +155,27 @@ function simple_up_problems_shortcode($atts) {
         <div class="container">
             <h2 class="problems-title"><?php echo esc_html($atts['title']); ?></h2>
             <div class="problems-grid">
-                <?php foreach ($problems as $problem) : ?>
-                    <div class="problem-card <?php echo $problem['bg_filled'] ? 'bg-filled' : ''; ?> <?php echo $problem['image'] !== 'none' ? 'has-image' : ''; ?>">
-                        <?php if ($problem['image'] === 'question') : ?>
-                            <div class="problem-image question-mark">?</div>
-                        <?php elseif ($problem['image'] === 'sleep') : ?>
-                            <div class="problem-image sleep">ZzZ</div>
-                        <?php elseif ($problem['image'] === 'doubt') : ?>
-                            <div class="problem-image doubt">?</div>
+                <?php 
+                // Разные изображения для каждой карточки
+                $person_images = array(
+                    1 => 'person-1.png',  // Карточка 1: Сайт не приносит клиентов
+                    3 => 'person-2.png',  // Карточка 3: SEO без результатов
+                    5 => 'person-3.png'   // Карточка 5: Сомнения и недоверие
+                );
+                
+                $index = 0;
+                foreach ($problems as $problem) : 
+                    $index++;
+                    // Определяем URL изображения для текущей карточки
+                    if ($problem['image'] !== 'none' && isset($person_images[$index])) {
+                        $image_url = get_template_directory_uri() . '/assets/images/' . $person_images[$index];
+                    }
+                ?>
+                    <div class="problem-card problem-card-<?php echo $index; ?> <?php echo $problem['bg_filled'] ? 'bg-filled' : ''; ?> <?php echo $problem['image'] !== 'none' ? 'has-image' : ''; ?>">
+                        <?php if ($problem['image'] !== 'none' && isset($person_images[$index])) : ?>
+                            <div class="problem-image problem-image-<?php echo $problem['image']; ?>">
+                                <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($problem['title']); ?>" class="problem-illustration">
+                            </div>
                         <?php endif; ?>
                         <h3 class="problem-title"><?php echo esc_html($problem['title']); ?></h3>
                         <p class="problem-description"><?php echo esc_html($problem['description']); ?></p>
@@ -170,8 +183,22 @@ function simple_up_problems_shortcode($atts) {
                 <?php endforeach; ?>
             </div>
             <div class="solution-block">
+                <?php 
+                $subtract_url = get_template_directory_uri() . '/assets/images/subtract.svg';
+                $forward_url = get_template_directory_uri() . '/assets/images/forward-button.svg';
+                // Отдельное изображение для блока решения
+                $solution_person_url = get_template_directory_uri() . '/assets/images/person-4.png';
+                ?>
+                <div class="solution-background">
+                    <img src="<?php echo esc_url($subtract_url); ?>" alt="" class="solution-bg-image">
+                </div>
                 <div class="solution-text"><?php echo esc_html($atts['solution_text']); ?></div>
-                <div class="solution-image">💡</div>
+                <div class="solution-image-wrapper">
+                    <img src="<?php echo esc_url($forward_url); ?>" alt="" class="solution-arrow">
+                    <div class="solution-person">
+                        <img src="<?php echo esc_url($solution_person_url); ?>" alt="" class="solution-person-image">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -217,10 +244,13 @@ function simple_up_solutions_shortcode($atts) {
             <div class="solutions-grid">
                 <?php foreach ($solutions as $index => $solution) : ?>
                     <div class="solution-card <?php echo $solution['bg_white'] ? 'bg-white' : 'bg-transparent'; ?>">
-                        <div class="solution-card-header">
-                            <h3 class="solution-card-title"><?php echo esc_html($solution['title']); ?></h3>
-                            <div class="solution-card-icon">+</div>
+                    <div class="solution-card-header">
+                        <h3 class="solution-card-title"><?php echo esc_html($solution['title']); ?></h3>
+                        <?php $plus_icon_url = get_template_directory_uri() . '/assets/images/plus-icon.svg'; ?>
+                        <div class="solution-card-icon">
+                            <img src="<?php echo esc_url($plus_icon_url); ?>" alt="+" class="plus-icon">
                         </div>
+                    </div>
                         <p class="solution-card-description"><?php echo esc_html($solution['description']); ?></p>
                     </div>
                 <?php endforeach; ?>

@@ -308,28 +308,65 @@ body {
     border-radius: 50px;
     padding: 45px 23px;
     min-height: 389px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     position: relative;
     background: transparent;
+    overflow: hidden;
+    isolation: isolate;
 }
 
 .problem-card.bg-filled {
     background: var(--purple-medium);
 }
 
-.problem-image {
+/* Изображения внутри каждой карточки - отдельное позиционирование для каждой карточки */
+.problem-card.has-image .problem-image {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 120px;
-    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 48px;
-    opacity: 0.6;
+    opacity: 0.9;
+    z-index: 0;
+    overflow: visible;
+    pointer-events: none;
+}
+
+/* Карточка 1: Сайт не приносит клиентов - изображение справа вверху внутри карточки */
+.problem-card-1 .problem-image {
+    top: 0;
+    right: 0;
+    width: 273px;
+    height: 303px;
+    transform: translate(10%, -5%);
+}
+
+/* Карточка 3: SEO без результатов - изображение справа вверху внутри карточки */
+.problem-card-3 .problem-image {
+    top: 0;
+    right: 0;
+    width: 296px;
+    height: 300px;
+    transform: translate(5%, -10%);
+}
+
+/* Карточка 5: Сомнения и недоверие - изображение справа вверху внутри карточки */
+.problem-card-5 .problem-image {
+    top: 0;
+    right: 0;
+    width: 284px;
+    height: 291px;
+    transform: translate(8%, -8%);
+}
+
+.problem-illustration {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top right;
+    display: block;
 }
 
 .problem-title {
@@ -339,6 +376,10 @@ body {
     color: var(--text-light);
     margin-bottom: 16px;
     font-family: 'Unbounded', sans-serif;
+    position: relative;
+    z-index: 2;
+    max-width: 65%;
+    padding-right: 10px;
 }
 
 .problem-description {
@@ -347,6 +388,10 @@ body {
     line-height: 1.5;
     color: var(--text-light);
     font-family: 'Unbounded', sans-serif;
+    position: relative;
+    z-index: 2;
+    max-width: 65%;
+    padding-right: 10px;
 }
 
 .solution-block {
@@ -354,12 +399,27 @@ body {
     align-items: center;
     justify-content: center;
     gap: 40px;
-    max-width: 602px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 40px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
     position: relative;
+    min-height: 200px;
+}
+
+.solution-background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.solution-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.1;
 }
 
 .solution-text {
@@ -369,11 +429,43 @@ body {
     color: var(--purple-darker);
     text-align: center;
     font-family: 'Unbounded', sans-serif;
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px 40px;
+    border-radius: 12px;
 }
 
-.solution-image {
-    font-size: 48px;
-    opacity: 0.8;
+.solution-image-wrapper {
+    position: relative;
+    width: 411px;
+    height: 442px;
+    z-index: 1;
+}
+
+.solution-arrow {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(139deg);
+    z-index: 2;
+}
+
+.solution-person {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.solution-person-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: rotate(5deg);
 }
 
 /* ========================================
@@ -443,19 +535,31 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 36px;
-    font-weight: 300;
     flex-shrink: 0;
+    overflow: hidden;
 }
 
 .solution-card.bg-white .solution-card-icon {
     background: var(--purple-darker);
-    color: var(--text-light);
 }
 
 .solution-card.bg-transparent .solution-card-icon {
     background: var(--text-light);
-    color: var(--purple-darker);
+}
+
+.plus-icon {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    display: block;
+}
+
+.solution-card.bg-white .plus-icon {
+    filter: brightness(0) invert(1);
+}
+
+.solution-card.bg-transparent .plus-icon {
+    filter: brightness(0);
 }
 
 .solution-card-description {
