@@ -1,10 +1,9 @@
 <?php
 /**
  * Шорткоды для Simple UP Theme
- * Точное соответствие макетам Figma - экраны 1, 2, 3
  */
 
-// Шорткод для ЭКРАН 1: Hero Section с кейсами и статистикой
+// Шорткод Hero Section
 function simple_up_hero_shortcode($atts) {
     $atts = shortcode_atts(array(
         'tag' => 'SEO КЕЙСЫ',
@@ -103,7 +102,7 @@ function simple_up_fallback_menu() {
     </ul>';
 }
 
-// Шорткод для ЭКРАН 2: Почему ваш бизнес теряет клиентов
+// Шорткод Проблемы бизнеса
 function simple_up_problems_shortcode($atts) {
     $atts = shortcode_atts(array(
         'title' => 'Почему Ваш бизнес теряет новых клиентов и бюджет?',
@@ -156,17 +155,15 @@ function simple_up_problems_shortcode($atts) {
             <h2 class="problems-title"><?php echo esc_html($atts['title']); ?></h2>
             <div class="problems-grid">
                 <?php 
-                // Разные изображения для каждой карточки
                 $person_images = array(
-                    1 => 'person-1.png',  // Карточка 1: Сайт не приносит клиентов
-                    3 => 'person-2.png',  // Карточка 3: SEO без результатов
-                    5 => 'person-3.png'   // Карточка 5: Сомнения и недоверие
+                    1 => 'person-1.png',
+                    3 => 'person-2.png',
+                    5 => 'person-3.png'
                 );
                 
                 $index = 0;
                 foreach ($problems as $problem) : 
                     $index++;
-                    // Определяем URL изображения для текущей карточки
                     if ($problem['image'] !== 'none' && isset($person_images[$index])) {
                         $image_url = get_template_directory_uri() . '/assets/images/' . $person_images[$index];
                     }
@@ -186,7 +183,6 @@ function simple_up_problems_shortcode($atts) {
                 <?php 
                 $subtract_url = get_template_directory_uri() . '/assets/images/subtract.svg';
                 $forward_url = get_template_directory_uri() . '/assets/images/forward-button.svg';
-                // Отдельное изображение для блока решения
                 $solution_person_url = get_template_directory_uri() . '/assets/images/person-4.png';
                 ?>
                 <div class="solution-background">
@@ -207,7 +203,7 @@ function simple_up_problems_shortcode($atts) {
 }
 add_shortcode('simple_up_problems', 'simple_up_problems_shortcode');
 
-// Шорткод для ЭКРАН 3: Наши решения
+// Шорткод Наши решения
 function simple_up_solutions_shortcode($atts) {
     $atts = shortcode_atts(array(
         'title' => 'Наши решения, которые реально работают'
