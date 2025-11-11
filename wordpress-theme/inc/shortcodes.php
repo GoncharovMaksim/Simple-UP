@@ -1,25 +1,33 @@
 <?php
 /**
  * Шорткоды для Simple UP Theme
+ * Точное соответствие макетам Figma - экраны 1, 2, 3
  */
 
-// Шорткод для БЛОК 1: Header + Hero Section
+// Шорткод для ЭКРАН 1: Hero Section с кейсами и статистикой
 function simple_up_hero_shortcode($atts) {
     $atts = shortcode_atts(array(
-        'title' => 'Добро пожаловать в Simple UP',
-        'description' => 'Мы создаем современные решения для вашего бизнеса. Профессиональный подход и качественный результат гарантированы.',
-        'button_text' => 'Начать работу',
-        'button_link' => '#'
+        'tag' => 'SEO КЕЙСЫ',
+        'title' => 'УВЕЛИЧИВАЕМ ПРОДАЖИ И ПОМОГАЕМ БРЕНДАМ ПОЛНОСТЬЮ РЕАЛИЗОВАТЬ ПОТЕНЦИАЛ DIGITAL-КОММУНИКАЦИИ',
+        'description' => 'Смотрите самые актуальные кейсы по продвижению от нашей digital-компании',
+        'button_text' => 'СМОТРЕТЬ КЕЙСЫ',
+        'button_link' => '#',
+        'stat1_percent' => '95%',
+        'stat1_text' => 'клиентов остаются с нами надолго (отток <5% в год)',
+        'stat2_percent' => '95%',
+        'stat2_text' => 'средний рост трафика за 3-4 месяца - +%',
+        'stat3_percent' => '95%',
+        'stat3_text' => 'рост лидов / конверсий - +%'
     ), $atts);
 
     ob_start();
     ?>
-    <section class="hero-section">
+    <section class="hero-section screen-1">
         <header class="header">
             <div class="container">
                 <div class="header-content">
                     <div class="logo">
-                        <a href="<?php echo home_url(); ?>">Simple UP</a>
+                        <a href="<?php echo home_url(); ?>">SimpleUp</a>
                     </div>
                     <nav class="nav">
                         <?php
@@ -35,16 +43,47 @@ function simple_up_hero_shortcode($atts) {
                         }
                         ?>
                     </nav>
-                    <button class="btn btn-primary">Связаться</button>
+                    <div class="header-contact">
+                        <a href="tel:+79508531784" class="phone">+7 950 853 17 84</a>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon telegram" aria-label="Telegram"></a>
+                            <a href="#" class="social-icon whatsapp" aria-label="WhatsApp"></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
         
+        <div class="hero-background">
+            <div class="grid-pattern"></div>
+            <div class="chart-bars"></div>
+        </div>
+        
         <div class="hero-content">
             <div class="container">
+                <div class="hero-tag"><?php echo esc_html($atts['tag']); ?> ++</div>
                 <h1 class="hero-title"><?php echo esc_html($atts['title']); ?></h1>
                 <p class="hero-description"><?php echo esc_html($atts['description']); ?></p>
                 <a href="<?php echo esc_url($atts['button_link']); ?>" class="btn btn-hero"><?php echo esc_html($atts['button_text']); ?></a>
+            </div>
+        </div>
+        
+        <div class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-percent"><?php echo esc_html($atts['stat1_percent']); ?></div>
+                        <div class="stat-text"><?php echo esc_html($atts['stat1_text']); ?></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-percent"><?php echo esc_html($atts['stat2_percent']); ?></div>
+                        <div class="stat-text"><?php echo esc_html($atts['stat2_text']); ?></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-percent"><?php echo esc_html($atts['stat3_percent']); ?></div>
+                        <div class="stat-text"><?php echo esc_html($atts['stat3_text']); ?></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -56,39 +95,133 @@ add_shortcode('simple_up_hero', 'simple_up_hero_shortcode');
 // Функция для fallback меню
 function simple_up_fallback_menu() {
     echo '<ul class="nav-list">
-        <li><a href="' . home_url() . '">Главная</a></li>
-        <li><a href="#">О нас</a></li>
+        <li><a href="' . home_url() . '">О нас</a></li>
         <li><a href="#">Услуги</a></li>
+        <li><a href="#">Блог</a></li>
+        <li><a href="#">SEO Кейсы</a></li>
         <li><a href="#">Контакты</a></li>
     </ul>';
 }
 
-// Шорткод для БЛОК 6-7: Features Section
-function simple_up_features_shortcode($atts) {
+// Шорткод для ЭКРАН 2: Почему ваш бизнес теряет клиентов
+function simple_up_problems_shortcode($atts) {
     $atts = shortcode_atts(array(
-        'title' => 'Наши возможности',
-        'columns' => '4'
+        'title' => 'Почему Ваш бизнес теряет новых клиентов и бюджет?',
+        'solution_text' => 'Мы понимаем эти боли и каждый день решаем их для бизнеса наших клиентов'
     ), $atts);
 
-    // Получаем элементы из атрибутов или используем по умолчанию
-    $features = array(
-        array('icon' => '🎯', 'title' => 'Целевой подход', 'description' => 'Мы фокусируемся на ваших целях и создаем решения, которые действительно работают.'),
-        array('icon' => '⚡', 'title' => 'Быстрая реализация', 'description' => 'Оперативное выполнение задач без потери качества. Результат в кратчайшие сроки.'),
-        array('icon' => '🔒', 'title' => 'Надежность', 'description' => 'Безопасные и стабильные решения, которые выдерживают любые нагрузки.'),
-        array('icon' => '💡', 'title' => 'Инновации', 'description' => 'Используем передовые технологии и современные подходы в разработке.')
+    $problems = array(
+        array(
+            'title' => 'Сайт не приносит клиентов',
+            'description' => 'Он есть, но заявок нет',
+            'image' => 'question',
+            'bg_filled' => false
+        ),
+        array(
+            'title' => 'Рекалама сливает бюджет',
+            'description' => 'Траты есть, продаж почти нет',
+            'image' => 'none',
+            'bg_filled' => true
+        ),
+        array(
+            'title' => 'SEO без результатов',
+            'description' => 'Подрядчики обещали рост, но трафика нет',
+            'image' => 'sleep',
+            'bg_filled' => false
+        ),
+        array(
+            'title' => 'Хаос в бизнес-процессах',
+            'description' => 'CRM, сайт и реклама не связаны',
+            'image' => 'none',
+            'bg_filled' => true
+        ),
+        array(
+            'title' => 'Сомнения и недоверие',
+            'description' => 'А вдруг снова не получиться?',
+            'image' => 'doubt',
+            'bg_filled' => true
+        ),
+        array(
+            'title' => 'Нет стратегии',
+            'description' => 'Все делается кусками, без общей цели',
+            'image' => 'none',
+            'bg_filled' => false
+        )
     );
 
     ob_start();
     ?>
-    <section class="features-section">
+    <section class="problems-section screen-2">
         <div class="container">
-            <h2 class="section-title"><?php echo esc_html($atts['title']); ?></h2>
-            <div class="features-grid" style="grid-template-columns: repeat(<?php echo esc_attr($atts['columns']); ?>, 1fr);">
-                <?php foreach ($features as $feature) : ?>
-                    <div class="feature-item">
-                        <div class="feature-icon"><?php echo esc_html($feature['icon']); ?></div>
-                        <h3 class="feature-title"><?php echo esc_html($feature['title']); ?></h3>
-                        <p class="feature-description"><?php echo esc_html($feature['description']); ?></p>
+            <h2 class="problems-title"><?php echo esc_html($atts['title']); ?></h2>
+            <div class="problems-grid">
+                <?php foreach ($problems as $problem) : ?>
+                    <div class="problem-card <?php echo $problem['bg_filled'] ? 'bg-filled' : ''; ?> <?php echo $problem['image'] !== 'none' ? 'has-image' : ''; ?>">
+                        <?php if ($problem['image'] === 'question') : ?>
+                            <div class="problem-image question-mark">?</div>
+                        <?php elseif ($problem['image'] === 'sleep') : ?>
+                            <div class="problem-image sleep">ZzZ</div>
+                        <?php elseif ($problem['image'] === 'doubt') : ?>
+                            <div class="problem-image doubt">?</div>
+                        <?php endif; ?>
+                        <h3 class="problem-title"><?php echo esc_html($problem['title']); ?></h3>
+                        <p class="problem-description"><?php echo esc_html($problem['description']); ?></p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div class="solution-block">
+                <div class="solution-text"><?php echo esc_html($atts['solution_text']); ?></div>
+                <div class="solution-image">💡</div>
+            </div>
+        </div>
+    </section>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('simple_up_problems', 'simple_up_problems_shortcode');
+
+// Шорткод для ЭКРАН 3: Наши решения
+function simple_up_solutions_shortcode($atts) {
+    $atts = shortcode_atts(array(
+        'title' => 'Наши решения, которые реально работают'
+    ), $atts);
+
+    $solutions = array(
+        array(
+            'title' => 'Комплексное продвижение',
+            'description' => 'Мы делаем глубокий анализ и системное SEO-продвижение, чтобы твой бизнес стабильно рос в поиске. Технично, системно, с реальными результатами. SEO, реклама и контент работают вместе, а не по отдельности.',
+            'bg_white' => false
+        ),
+        array(
+            'title' => 'ИТ-интеграции',
+            'description' => 'Внедряем IT-решения под задачи: автоматизация, интеграции, CRM. Мы не делаем вид, а реально упрощаем процессы и ускоряем бизнес и он начинает работать как единое целое',
+            'bg_white' => true
+        ),
+        array(
+            'title' => 'Современные сайты',
+            'description' => 'Разрабатываем сайты под бизнес-цели: дизайн, удобство, скорость работы. Всё так, чтобы сайт приносил клиентов, а не просто существовал',
+            'bg_white' => true
+        ),
+        array(
+            'title' => 'Управляемая реклама',
+            'description' => 'Настраиваем рекламу, которая даёт заявки и звонки, окупающие вложения. Работаем в цифрах, делаем оптимизацию и добиваемся прогнозируемого результата. Каждый рубль подконтролен, каждая заявка считается.',
+            'bg_white' => false
+        )
+    );
+
+    ob_start();
+    ?>
+    <section class="solutions-section screen-3">
+        <div class="container">
+            <h2 class="solutions-title"><?php echo esc_html($atts['title']); ?></h2>
+            <div class="solutions-grid">
+                <?php foreach ($solutions as $index => $solution) : ?>
+                    <div class="solution-card <?php echo $solution['bg_white'] ? 'bg-white' : 'bg-transparent'; ?>">
+                        <div class="solution-card-header">
+                            <h3 class="solution-card-title"><?php echo esc_html($solution['title']); ?></h3>
+                            <div class="solution-card-icon">+</div>
+                        </div>
+                        <p class="solution-card-description"><?php echo esc_html($solution['description']); ?></p>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -97,63 +230,7 @@ function simple_up_features_shortcode($atts) {
     <?php
     return ob_get_clean();
 }
-add_shortcode('simple_up_features', 'simple_up_features_shortcode');
-
-// Шорткод для БЛОК 8: Process Section
-function simple_up_process_shortcode($atts) {
-    $atts = shortcode_atts(array(
-        'title' => 'Как мы работаем'
-    ), $atts);
-
-    $process_items = array(
-        array('icon' => '📋', 'title' => 'Анализ', 'description' => 'Изучаем ваши требования и цели'),
-        array('icon' => '🎨', 'title' => 'Дизайн', 'description' => 'Создаем концепцию и прототипы'),
-        array('icon' => '⚙️', 'title' => 'Разработка', 'description' => 'Реализуем решение с использованием лучших практик'),
-        array('icon' => '✅', 'title' => 'Запуск', 'description' => 'Тестируем и запускаем проект')
-    );
-
-    $steps = array(
-        array('number' => '1', 'title' => 'Консультация', 'description' => 'Обсуждение проекта и требований'),
-        array('number' => '2', 'title' => 'Планирование', 'description' => 'Составление плана и сроков'),
-        array('number' => '3', 'title' => 'Реализация', 'description' => 'Выполнение работ по плану'),
-        array('number' => '4', 'title' => 'Поддержка', 'description' => 'Сопровождение и улучшения')
-    );
-
-    ob_start();
-    ?>
-    <section class="process-section">
-        <div class="container">
-            <h2 class="section-title"><?php echo esc_html($atts['title']); ?></h2>
-            <div class="process-container">
-                <div class="process-items">
-                    <?php foreach ($process_items as $item) : ?>
-                        <div class="process-item">
-                            <div class="process-icon"><?php echo esc_html($item['icon']); ?></div>
-                            <div>
-                                <h3 class="process-item-title"><?php echo esc_html($item['title']); ?></h3>
-                                <p class="process-item-description"><?php echo esc_html($item['description']); ?></p>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-                <div class="process-steps">
-                    <?php foreach ($steps as $step) : ?>
-                        <div class="step">
-                            <div class="step-number"><?php echo esc_html($step['number']); ?></div>
-                            <div class="step-content">
-                                <h4 class="step-title"><?php echo esc_html($step['title']); ?></h4>
-                                <p class="step-description"><?php echo esc_html($step['description']); ?></p>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </div>
-    </section>
-    <?php
-    return ob_get_clean();
-}
-add_shortcode('simple_up_process', 'simple_up_process_shortcode');
+add_shortcode('simple_up_solutions', 'simple_up_solutions_shortcode');
 
 // Регистрация меню
 function simple_up_register_menus() {
@@ -162,4 +239,3 @@ function simple_up_register_menus() {
     ));
 }
 add_action('after_setup_theme', 'simple_up_register_menus');
-

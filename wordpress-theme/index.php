@@ -1,22 +1,24 @@
 <?php
 /**
  * Основной шаблон WordPress
+ * Три экрана точно по макетам Figma
  */
 get_header();
 ?>
 
 <main id="main-content">
     <?php
-    // Использование шорткодов
-    echo do_shortcode('[simple_up_hero title="Добро пожаловать в Simple UP" description="Мы создаем современные решения для вашего бизнеса. Профессиональный подход и качественный результат гарантированы." button_text="Начать работу" button_link="#"]');
+    // ЭКРАН 1: Hero Section с кейсами и статистикой
+    echo do_shortcode('[simple_up_hero]');
     
-    echo do_shortcode('[simple_up_features title="Наши возможности" columns="4"]');
+    // ЭКРАН 2: Проблемы бизнеса
+    echo do_shortcode('[simple_up_problems]');
     
-    echo do_shortcode('[simple_up_process title="Как мы работаем"]');
+    // ЭКРАН 3: Наши решения
+    echo do_shortcode('[simple_up_solutions]');
     ?>
 </main>
 
 <?php
 get_footer();
 ?>
-

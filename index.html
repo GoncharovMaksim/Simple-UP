@@ -3,129 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple UP - Главная</title>
+    <title>SimpleUp - SEO Кейсы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Unbounded:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- БЛОК 1: Header + Hero Section -->
-    <section class="hero-section">
+    <!-- ЭКРАН 1: Hero Section с кейсами и статистикой -->
+    <section class="hero-section screen-1">
         <header class="header">
             <div class="container">
                 <div class="header-content">
                     <div class="logo">
-                        <a href="#">Simple UP</a>
+                        <a href="#">SimpleUp</a>
                     </div>
                     <nav class="nav">
                         <ul class="nav-list">
-                            <li><a href="#">Главная</a></li>
                             <li><a href="#">О нас</a></li>
                             <li><a href="#">Услуги</a></li>
+                            <li><a href="#">Блог</a></li>
+                            <li><a href="#">SEO Кейсы</a></li>
                             <li><a href="#">Контакты</a></li>
                         </ul>
                     </nav>
-                    <button class="btn btn-primary">Связаться</button>
+                    <div class="header-contact">
+                        <a href="tel:+79508531784" class="phone">+7 950 853 17 84</a>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon telegram" aria-label="Telegram"></a>
+                            <a href="#" class="social-icon whatsapp" aria-label="WhatsApp"></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
         
+        <div class="hero-background">
+            <div class="grid-pattern"></div>
+            <div class="chart-bars"></div>
+        </div>
+        
         <div class="hero-content">
             <div class="container">
-                <h1 class="hero-title">Добро пожаловать в Simple UP</h1>
-                <p class="hero-description">Мы создаем современные решения для вашего бизнеса. Профессиональный подход и качественный результат гарантированы.</p>
-                <button class="btn btn-hero">Начать работу</button>
+                <div class="hero-tag">SEO КЕЙСЫ ++</div>
+                <h1 class="hero-title">УВЕЛИЧИВАЕМ ПРОДАЖИ И ПОМОГАЕМ БРЕНДАМ ПОЛНОСТЬЮ РЕАЛИЗОВАТЬ ПОТЕНЦИАЛ DIGITAL-КОММУНИКАЦИИ</h1>
+                <p class="hero-description">Смотрите самые актуальные кейсы по продвижению от нашей digital-компании</p>
+                <a href="#" class="btn btn-hero">СМОТРЕТЬ КЕЙСЫ</a>
             </div>
         </div>
-    </section>
-
-    <!-- БЛОК 6-7: Features Section with Columns -->
-    <section class="features-section">
-        <div class="container">
-            <h2 class="section-title">Наши возможности</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🎯</div>
-                    <h3 class="feature-title">Целевой подход</h3>
-                    <p class="feature-description">Мы фокусируемся на ваших целях и создаем решения, которые действительно работают.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">⚡</div>
-                    <h3 class="feature-title">Быстрая реализация</h3>
-                    <p class="feature-description">Оперативное выполнение задач без потери качества. Результат в кратчайшие сроки.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🔒</div>
-                    <h3 class="feature-title">Надежность</h3>
-                    <p class="feature-description">Безопасные и стабильные решения, которые выдерживают любые нагрузки.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">💡</div>
-                    <h3 class="feature-title">Инновации</h3>
-                    <p class="feature-description">Используем передовые технологии и современные подходы в разработке.</p>
+        
+        <div class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-percent">95%</div>
+                        <div class="stat-text">клиентов остаются с нами надолго (отток &lt;5% в год)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-percent">95%</div>
+                        <div class="stat-text">средний рост трафика за 3-4 месяца - +%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-percent">95%</div>
+                        <div class="stat-text">рост лидов / конверсий - +%</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- БЛОК 8: Process Steps Section -->
-    <section class="process-section">
+    <!-- ЭКРАН 2: Проблемы бизнеса -->
+    <section class="problems-section screen-2">
         <div class="container">
-            <h2 class="section-title">Как мы работаем</h2>
-            <div class="process-container">
-                <div class="process-items">
-                    <div class="process-item">
-                        <div class="process-icon">📋</div>
-                        <h3 class="process-item-title">Анализ</h3>
-                        <p class="process-item-description">Изучаем ваши требования и цели</p>
-                    </div>
-                    <div class="process-item">
-                        <div class="process-icon">🎨</div>
-                        <h3 class="process-item-title">Дизайн</h3>
-                        <p class="process-item-description">Создаем концепцию и прототипы</p>
-                    </div>
-                    <div class="process-item">
-                        <div class="process-icon">⚙️</div>
-                        <h3 class="process-item-title">Разработка</h3>
-                        <p class="process-item-description">Реализуем решение с использованием лучших практик</p>
-                    </div>
-                    <div class="process-item">
-                        <div class="process-icon">✅</div>
-                        <h3 class="process-item-title">Запуск</h3>
-                        <p class="process-item-description">Тестируем и запускаем проект</p>
-                    </div>
+            <h2 class="problems-title">Почему Ваш бизнес теряет новых клиентов и бюджет?</h2>
+            <div class="problems-grid">
+                <div class="problem-card has-image">
+                    <div class="problem-image question-mark">?</div>
+                    <h3 class="problem-title">Сайт не приносит клиентов</h3>
+                    <p class="problem-description">Он есть, но заявок нет</p>
                 </div>
-                <div class="process-steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h4 class="step-title">Консультация</h4>
-                            <p class="step-description">Обсуждение проекта и требований</p>
-                        </div>
+                <div class="problem-card bg-filled">
+                    <h3 class="problem-title">Рекалама сливает бюджет</h3>
+                    <p class="problem-description">Траты есть, продаж почти нет</p>
+                </div>
+                <div class="problem-card has-image">
+                    <div class="problem-image sleep">ZzZ</div>
+                    <h3 class="problem-title">SEO без результатов</h3>
+                    <p class="problem-description">Подрядчики обещали рост, но трафика нет</p>
+                </div>
+                <div class="problem-card bg-filled">
+                    <h3 class="problem-title">Хаос в бизнес-процессах</h3>
+                    <p class="problem-description">CRM, сайт и реклама не связаны</p>
+                </div>
+                <div class="problem-card bg-filled has-image">
+                    <div class="problem-image doubt">?</div>
+                    <h3 class="problem-title">Сомнения и недоверие</h3>
+                    <p class="problem-description">А вдруг снова не получиться?</p>
+                </div>
+                <div class="problem-card">
+                    <h3 class="problem-title">Нет стратегии</h3>
+                    <p class="problem-description">Все делается кусками, без общей цели</p>
+                </div>
+            </div>
+            <div class="solution-block">
+                <div class="solution-text">Мы понимаем эти боли и каждый день решаем их для бизнеса наших клиентов</div>
+                <div class="solution-image">💡</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ЭКРАН 3: Наши решения -->
+    <section class="solutions-section screen-3">
+        <div class="container">
+            <h2 class="solutions-title">Наши решения, которые реально работают</h2>
+            <div class="solutions-grid">
+                <div class="solution-card bg-transparent">
+                    <div class="solution-card-header">
+                        <h3 class="solution-card-title">Комплексное продвижение</h3>
+                        <div class="solution-card-icon">+</div>
                     </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h4 class="step-title">Планирование</h4>
-                            <p class="step-description">Составление плана и сроков</p>
-                        </div>
+                    <p class="solution-card-description">Мы делаем глубокий анализ и системное SEO-продвижение, чтобы твой бизнес стабильно рос в поиске. Технично, системно, с реальными результатами. SEO, реклама и контент работают вместе, а не по отдельности.</p>
+                </div>
+                <div class="solution-card bg-white">
+                    <div class="solution-card-header">
+                        <h3 class="solution-card-title">ИТ-интеграции</h3>
+                        <div class="solution-card-icon">+</div>
                     </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h4 class="step-title">Реализация</h4>
-                            <p class="step-description">Выполнение работ по плану</p>
-                        </div>
+                    <p class="solution-card-description">Внедряем IT-решения под задачи: автоматизация, интеграции, CRM. Мы не делаем вид, а реально упрощаем процессы и ускоряем бизнес и он начинает работать как единое целое</p>
+                </div>
+                <div class="solution-card bg-white">
+                    <div class="solution-card-header">
+                        <h3 class="solution-card-title">Современные сайты</h3>
+                        <div class="solution-card-icon">+</div>
                     </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                            <h4 class="step-title">Поддержка</h4>
-                            <p class="step-description">Сопровождение и улучшения</p>
-                        </div>
+                    <p class="solution-card-description">Разрабатываем сайты под бизнес-цели: дизайн, удобство, скорость работы. Всё так, чтобы сайт приносил клиентов, а не просто существовал</p>
+                </div>
+                <div class="solution-card bg-transparent">
+                    <div class="solution-card-header">
+                        <h3 class="solution-card-title">Управляемая реклама</h3>
+                        <div class="solution-card-icon">+</div>
                     </div>
+                    <p class="solution-card-description">Настраиваем рекламу, которая даёт заявки и звонки, окупающие вложения. Работаем в цифрах, делаем оптимизацию и добиваемся прогнозируемого результата. Каждый рубль подконтролен, каждая заявка считается.</p>
                 </div>
             </div>
         </div>
     </section>
 </body>
 </html>
-
